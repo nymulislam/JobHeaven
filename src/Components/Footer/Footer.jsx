@@ -1,6 +1,7 @@
 import { BsFacebook } from 'react-icons/bs'
 import { FaXTwitter, FaLinkedinIn } from 'react-icons/fa6'
 import { BsGithub } from 'react-icons/bs'
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -50,36 +51,36 @@ const Footer = () => {
                   </span>
                   <ul className="list-unstyled">
                     <li>
-                      <a
+                      <Link
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="#"
+                        to="/"
                       >
                         About Us
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="#"
+                        to="/"
                       >
-                        Blog
-                      </a>
+                        Home
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className=" font-semibold block pb-2 text-sm"
-                        href="#"
+                        to="/blogs"
                       >
-                        Github
-                      </a>
+                        Blogs
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="font-semibold block pb-2 text-sm"
-                        href="#"
+                        to="/allJobs"
                       >
-                        Free Products
-                      </a>
+                        All Jobs
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -89,36 +90,36 @@ const Footer = () => {
                   </span>
                   <ul className="list-unstyled">
                     <li>
-                      <a
+                      <Link
                         className="font-semibold block pb-2 text-sm"
-                        href="#"
+                        to="/"
                       >
                         MIT License
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="font-semibold block pb-2 text-sm"
-                        href="#"
+                        to="/"
                       >
                         Terms &amp; Conditions
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="font-semibold block pb-2 text-sm"
-                        href="#"
+                        to="/"
                       >
                         Privacy Policy
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         className="font-semibold block pb-2 text-sm"
-                        href="#"
+                        to="/"
                       >
                         Contact Us
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -130,19 +131,19 @@ const Footer = () => {
             <div className="w-full md:w-4/12 px-4 mx-auto text-center">
               <div className="text-base text-gray-600 font-semibold py-1">
                 Copyright © <span id="get-current-year">2023</span>
-                <a
-                  href="https://www.creative-tim.com/product/notus-js"
+                <Link
+                  to="/"
                   className="text-blueGray-500 hover:text-gray-800"
                 >
                   {" "}
                   JobHeaven by{" "}
-                </a>
-                <a
-                  href="https://www.creative-tim.com?ref=njs-profile"
+                </Link>
+                <Link
+                  to="/"
                   className=""
                 >
                   NYM
-                </a>
+                </Link>
                 .
               </div>
             </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MdMenu, MdClose } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,35 +23,48 @@ const Navbar = () => {
           >
             <ul className="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-8">
               <li className="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                <a href="#">Home</a>
+                <Link to="/">Home</Link>
               </li>
               <li className="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                <a href="#">Faculty</a>
+                <Link to="/allJobs">All Jobs</Link>
               </li>
               <li className="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                <a href="#">Courses</a>
+                <Link to="/appliedJobs">Applied Jobs</Link>
               </li>
               <li className="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                <a href="#">About Us</a>
+                <Link to="/myJobs">My Jobs</Link>
               </li>
               <li className="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                <a href="#">Contact us</a>
+                <Link to="/addJobs">Add A Job</Link>
+              </li>
+              <li className="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
+                <Link to="/blogs">Blogs</Link>
               </li>
             </ul>
           </div>
           <div className="flex items-center gap-2">
+
+            {/* Login */}
+            <Link to="/login">
             <button
               type="button"
               className="hover:bg-clip-text hover:text-transparent bg-gradient-to-br from-[#2b68e0] to-[#e710ea] border-solid border-2 border-[#5356e3] font-bold transition-colors duration-300 text-white px-5 py-2 rounded-full"
             >
               Login
             </button>
+            </Link>
+
+            {/* SignUp */}
+            <Link to="/signUp">
             <button
               type="button"
               className="hover:bg-clip-text hover:text-transparent bg-gradient-to-br from-[#2b68e0] to-[#e710ea] border-solid border-2 border-[#5356e3] transition-colors duration-300 font-bold text-white px-5 py-2 rounded-full"
             >
               SignUp
             </button>
+            </Link>
+
+            {/* Menubar condition */}
             {menuOpen ? (
               <MdClose
                 onClick={onMenuToggle}
@@ -62,6 +76,8 @@ const Navbar = () => {
                 className="text-[30px] cursor-pointer md:hidden"
               />
             )}
+
+
           </div>
         </div>
       </nav>
