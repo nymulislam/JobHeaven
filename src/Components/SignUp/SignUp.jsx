@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { toast } from "react-toastify";
 import swal from "sweetalert";
+import { FcGoogle } from "react-icons/fc";
 
 const SignUp = () => {
   const { createUser, googleSignin } = useContext(AuthContext);
@@ -60,13 +61,14 @@ const SignUp = () => {
               text: "OK",
               value: true,
               visible: true,
-              className: "bg-gradient-to-br from-[#2b68e0] to-[#e710ea] border-solid border-2 border-[#5356e3] text-white p-2 px-4 rounded-lg",
+              className:
+                "bg-gradient-to-br from-[#2b68e0] to-[#e710ea] border-solid border-2 border-[#5356e3] text-white p-2 px-4 rounded-lg",
               closeModal: true,
             },
           },
           closeOnClickOutside: false,
         });
-        
+
         navigate("/");
         form.reset();
       } catch (error) {
@@ -92,6 +94,7 @@ const SignUp = () => {
         toast.success("You have successfully logged in", {
           position: "top-right",
         });
+        navigate("/");
       })
       .catch((error) => {
         console.log("login error", error);
@@ -109,17 +112,17 @@ const SignUp = () => {
             Sign Up
           </h3>
         </div>
-        <div className="p-6 pt-0">
+        <div className=" p-6 pt-0">
           <button
             onClick={handleGoogleSingin}
-            className="block w-full select-none rounded-lg bg-gradient-to-br from-[#2b68e0] to-[#e710ea] border-solid border-2 border-[#5356e3] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            className="relative block w-full select-none rounded-lg bg-gradient-to-br from-[#2b68e0] to-[#e710ea] border-solid border-2 border-[#5356e3] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
             data-ripple-light="true"
           >
-            <span className="absolute left-0 top-0 flex items-center justify-center h-full w-10 text-blue-500">
-              {/* Google Icon */}
+            <span className="absolute left-20  rounded-full  top-2 flex items-center justify-center">
+              <FcGoogle className="w-7 h-7 bg-white rounded-full "></FcGoogle>
             </span>
-            <span>Login with Google</span>
+            <span className="ml-10 text-sm">Login with Google</span>
           </button>
           <div className="relative mt-10 h-px bg-gray-300">
             <div className="absolute left-0 top-0 flex justify-center w-full -mt-2">
@@ -221,15 +224,15 @@ const SignUp = () => {
                 required
               />
             </div>
-          <div className="mt-10">
-          <button
-            className="block w-full select-none rounded-lg bg-gradient-to-br from-[#2b68e0] to-[#e710ea] border-solid border-2 border-[#5356e3] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="submit"
-            data-ripple-light="true"
-          >
-            Sign Up
-          </button>
-          </div>
+            <div className="mt-10">
+              <button
+                className="block w-full select-none rounded-lg bg-gradient-to-br from-[#2b68e0] to-[#e710ea] border-solid border-2 border-[#5356e3] py-3 px-6 text-center align-middle font-sans text-base font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="submit"
+                data-ripple-light="true"
+              >
+                Sign Up
+              </button>
+            </div>
           </form>
           <div className="-ml-2.5"></div>
         </div>
