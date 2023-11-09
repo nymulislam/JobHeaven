@@ -1,12 +1,18 @@
-import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import { useContext, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../Providers/AuthProvider";
 import {FcGoogle} from 'react-icons/fc'
-const Login = () => {
+const Login = ({title}) => {
   const { signin, googleSignin } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  const location = useLocation();
+  useEffect(() => {
+    document.title = `Job Heaven | ${title}`
+  }, [location.pathname, title])
+  
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;

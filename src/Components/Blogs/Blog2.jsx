@@ -1,6 +1,13 @@
-import { Link } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-const Blog2 = () => {
+const Blog2 = ({title}) => {
+  const location = useLocation();
+  useEffect( () => {
+    document.title = `Job Heaven | ${title}`
+  }, [location.pathname, title])
+  
   return (
     <div className="max-w-screen-xl mx-auto mb-10">
       <main className="mt-10">

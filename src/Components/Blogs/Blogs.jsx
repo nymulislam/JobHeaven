@@ -1,12 +1,19 @@
-import { Link } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-const Blogs = () => {
+const Blogs = ({title}) => {
+  const location = useLocation();
+  useEffect(() => {
+    document.title = `Job Heaven | ${title}`
+  }, [location.pathname, title])
+  
   return (
-    <div className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto">
+    <div className="text-gray-600 body-font max-w-6xl mx-auto">
+      <div className="container px-5 mt-16 mb-24 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 -m-4 gap-5">
           {/* Blog One */}
-          <div className="p-4  shadow-lg hover:shadow-2xl">
+          <div className="p-4 bg-white rounded-lg shadow-lg hover:shadow-2xl">
             <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
               <img
                 className="lg:h-48 md:h-36 w-full object-cover object-center"
@@ -57,7 +64,7 @@ const Blogs = () => {
                       <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                       <circle cx="12" cy="12" r="3"></circle>
                     </svg>
-                    1.2K
+                    3.2K
                   </span>
                   <span className="text-gray-400 inline-flex items-center leading-none text-sm">
                     <svg
@@ -71,7 +78,7 @@ const Blogs = () => {
                     >
                       <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
                     </svg>
-                    6
+                    16
                   </span>
                 </div>
               </div>
@@ -79,7 +86,7 @@ const Blogs = () => {
           </div>
 
           {/* Blog Two */}
-          <div className="p-4 shadow-lg hover:shadow-2xl">
+          <div className="p-4 bg-white rounded-lg shadow-lg hover:shadow-2xl">
             <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
               <img
                 className="lg:h-48 md:h-36 w-full object-cover object-center"
@@ -130,7 +137,7 @@ const Blogs = () => {
                       <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                       <circle cx="12" cy="12" r="3"></circle>
                     </svg>
-                    1.2K
+                    1.8K
                   </span>
                   <span className="text-gray-400 inline-flex items-center leading-none text-sm">
                     <svg
@@ -152,7 +159,7 @@ const Blogs = () => {
           </div>
 
           {/* Blog Three */}
-          <div className="p-4 shadow-lg hover:shadow-2xl">
+          <div className="p-4 bg-white rounded-lg shadow-lg hover:shadow-2xl">
             <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
               <img
                 className="lg:h-48 md:h-36 w-full object-cover object-center"
@@ -167,7 +174,7 @@ const Blogs = () => {
                   Code Explanation
                 </h1>
                 <p className="leading-relaxed mb-3">
-                Explore a succinct React code snippet demonstrating a responsive navigation bar with user authentication.
+                Explore a succinct React code snippet demonstrating a responsive navigation bar with user authentication and an intuitive menu system.
                 </p>
                 <div className="flex items-center flex-wrap ">
                   <Link
@@ -215,7 +222,7 @@ const Blogs = () => {
                     >
                       <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
                     </svg>
-                    6
+                    3
                   </span>
                 </div>
               </div>

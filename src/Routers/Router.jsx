@@ -12,6 +12,8 @@ import Blogs from "../Components/Blogs/Blogs";
 import Blog1 from "../Components/Blogs/Blog1";
 import Blog2 from "../Components/Blogs/Blog2";
 import Blog3 from "../Components/Blogs/Blog3";
+import AllJobs from "../Components/AllJobs/AllJobs";
+import JobDetail from "../Components/JobDetail/JobDetail";
 
 
 const router = createBrowserRouter([
@@ -22,43 +24,53 @@ const router = createBrowserRouter([
       children: [
         {
           path: "/",
-          element: <Home></Home>,
+          element: <Home title="Your Dream Job, Our Mission"></Home>,
         },
         {
           path: "/signUp",
-          element: <SignUp></SignUp>
+          element: <SignUp title="Sign Up"></SignUp>
         },
         {
           path: "/login",
-          element: <Login></Login>
+          element: <Login title="Login"></Login>
+        },
+        {
+          path: "/allJobs",
+          element: <AllJobs title="All Jobs"></AllJobs>,
+          loader: () => fetch("http://localhost:5000/jobs")
         },
         {
           path: "/addJob",
-          element: <PrivateRoute><AddJob></AddJob></PrivateRoute>
+          element: <PrivateRoute><AddJob title="Add A Job"></AddJob></PrivateRoute>
         },
         {
           path: "/myJobs",
-          element: <PrivateRoute><MyJobs></MyJobs></PrivateRoute>
+          element: <PrivateRoute><MyJobs title="My Jobs"></MyJobs></PrivateRoute>
         },
         {
           path: "/AppliedJobs",
-          element: <PrivateRoute><AppliedJobs></AppliedJobs></PrivateRoute>
+          element: <PrivateRoute><AppliedJobs title="Applied Jobs"></AppliedJobs></PrivateRoute>
+        },
+        {
+          path: "/jobDetail/:id",
+          element: <PrivateRoute><JobDetail title="Job Detail"></JobDetail></PrivateRoute>,
+          loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
         },
         {
           path: "/blogs",
-          element: <Blogs></Blogs>
+          element: <Blogs title="Blogs"></Blogs>
         },
         {
           path: "/blog1",
-          element: <Blog1></Blog1>
+          element: <Blog1 title="Blog No: 1"></Blog1>
         },
         {
           path: "/blog2",
-          element: <Blog2></Blog2>
+          element: <Blog2 title="Blog No: 2"></Blog2>
         },
         {
           path: "/blog3",
-          element: <Blog3></Blog3>
+          element: <Blog3 title="Blog No: 3"></Blog3>
         },
 
       ],
