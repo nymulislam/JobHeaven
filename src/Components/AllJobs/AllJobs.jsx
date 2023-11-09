@@ -1,15 +1,28 @@
 /* eslint-disable react/prop-types */
-import { useEffect } from "react";
-import { useLoaderData, useLocation } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
+import { toast } from "react-toastify";
 
 const AllJobs = ({title}) => {
   const jobs = useLoaderData();
-
+  const {user} = useContext(AuthContext)
+  const navigate = useNavigate()
   const location = useLocation();
 
   useEffect(() => {
     document.title = `Job Heaven | ${title}`;
   }, [location.pathname, title])
+
+  const handleViewDetails = job => {
+    if (!user) {
+      toast.error("You have to login first to view details")
+      navigate("/login");
+    } else {
+      console.log("Viewing details of:", job.title);
+      navigate(`/jobDetail/${job._id}`);
+    }
+  }
 
   return (
     <div className="max-w-6xl mx-auto mb-20 mt-10">
@@ -43,7 +56,7 @@ const AllJobs = ({title}) => {
             <span className="font-semibold">Description: </span>
               {job.description}</p>
             <div className="text-center mt-5">
-              <button className="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-700">
+              <button onClick={()=> handleViewDetails(job)} className="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-700">
                 View Details
               </button>
             </div>

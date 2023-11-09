@@ -30,7 +30,7 @@ const MyTabs = () => {
       navigate("/login");
     } else {
       console.log("Viewing details of:", job.title);
-      navigate(`/jobDetail/${job._id}`);
+      navigate(`/jobDetailHome/${job._id}`);
     }
   }
   return (

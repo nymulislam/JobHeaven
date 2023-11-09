@@ -9,8 +9,7 @@ const AppliedJobs = ({title}) => {
     },[location.pathname, title])
     
     return (
-        <div>
-            This is Applied Jobs Section.
+        <div className="h-screen">
         </div>
     );
 };

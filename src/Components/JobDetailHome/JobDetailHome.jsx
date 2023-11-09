@@ -50,9 +50,6 @@ const JobDetail = ({ title }) => {
             {job.description}
           </p>
           <div className="text-center mt-5">
-            <button className="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-700">
-              Apply
-            </button>
           </div>
         </div>
       </div>
