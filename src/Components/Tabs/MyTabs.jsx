@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 
 const MyTabs = () => {
   const [jobsData, setJobsData] = useState([]);
-  const {user} = useContext(AuthContext)
-  const navigate = useNavigate()
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   useEffect(() => {
-    fetch("http://localhost:5000/jobs")
+    fetch("http://localhost:5000/allJobs/add")
       .then((res) => res.json())
       .then((data) => setJobsData(data))
       .catch((error) => console.log("Error fetching data:", error));
@@ -24,15 +24,15 @@ const MyTabs = () => {
     }
   };
 
-  const handleViewDetails = job => {
+  const handleViewDetails = (job) => {
     if (!user) {
-      toast.error("You have to login first to view details")
+      toast.error("You have to login first to view details");
       navigate("/login");
     } else {
       console.log("Viewing details of:", job.title);
-      navigate(`/jobDetailHome/${job._id}`);
+      navigate(`/jobDetail/${job._id}`);
     }
-  }
+  };
   return (
     <Tabs className="max-w-6xl mx-auto mt-20 mb-10">
       <TabList>
@@ -61,9 +61,14 @@ const MyTabs = () => {
                     className="w-full h-56 object-cover mb-4 rounded-md"
                   />
 
-                  <h2 className="text-xl font-semibold text-gray-800">
-                    {job.employer}
-                  </h2>
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-xl font-semibold text-gray-800">
+                      {job.employer}
+                    </h2>
+                    <div className="badge bg-gradient-to-r from-[#2b68e0] to-[#e710ea] text-white font-semibold uppercase">
+                      {job.category}
+                    </div>
+                  </div>
                   <p className="text-lg font-semibold text-indigo-600 my-2">
                     {job.title}
                   </p>
@@ -90,10 +95,9 @@ const MyTabs = () => {
                   </p>
                   <div className="text-center mt-5">
                     <button
-
-                    onClick={() => handleViewDetails(job)}
-                    
-                    className="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-700">
+                      onClick={() => handleViewDetails(job)}
+                      className="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
+                    >
                       View Details
                     </button>
                   </div>

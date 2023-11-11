@@ -142,6 +142,7 @@ const AddJob = ({ title }) => {
               <input
                 type="number"
                 min="0"
+                defaultValue="0"
                 pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                 name="applicant"
                 className="w-[70%] h-8 mb-3 py-2 px-3 text-[#888] border-[1px] border-[#dadada]"

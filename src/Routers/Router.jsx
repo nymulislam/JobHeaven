@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../Components/Root/Root";
-import PrivateRoute from "../components/Private/PrivateRoute";
+import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import Home from "../Components/Home/Home";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import Login from "../Components/Login/Login";
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
           element: <PrivateRoute><MyJobs title="My Jobs"></MyJobs></PrivateRoute>,
         },
         {
-          path: "/AppliedJobs",
+          path: "/AppliedJob",
           element: <PrivateRoute><AppliedJobs title="Applied Jobs"></AppliedJobs></PrivateRoute>,
         },
         {
