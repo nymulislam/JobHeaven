@@ -7,8 +7,10 @@ import { useNavigate } from "react-router-dom";
 
 const MyTabs = () => {
   const [jobsData, setJobsData] = useState([]);
+  const [showAllJobs, setShowAllJobs] = useState(false)
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+
   useEffect(() => {
     fetch("http://localhost:5000/allJobs/add")
       .then((res) => res.json())
@@ -18,9 +20,10 @@ const MyTabs = () => {
 
   const filterJobsByCategory = (category) => {
     if (category === "All Jobs") {
-      return jobsData;
+      return showAllJobs ? jobsData : jobsData.slice(0, 2);
     } else {
-      return jobsData.filter((job) => job.category === category);
+      return jobsData
+        .filter((job) => job.category === category)
     }
   };
 
@@ -104,6 +107,17 @@ const MyTabs = () => {
                 </div>
               ))}
             </div>
+            {/* Show All Button */}
+            {jobsData.length > 2 && !showAllJobs && (
+              <div className="text-center mt-5">
+                <button
+                  onClick={() => setShowAllJobs(true)}
+                  className="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
+                >
+                  Show All
+                </button>
+              </div>
+            )}
           </TabPanel>
         )
       )}

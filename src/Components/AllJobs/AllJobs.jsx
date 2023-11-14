@@ -87,6 +87,7 @@ const AllJobs = ({ title }) => {
                 {job.category}
               </div>
             </div>
+            
             <p className="text-lg font-semibold text-indigo-600 my-2">
               {job.title}
             </p>

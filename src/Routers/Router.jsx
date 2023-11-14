@@ -14,7 +14,6 @@ import Blog2 from "../Components/Blogs/Blog2";
 import Blog3 from "../Components/Blogs/Blog3";
 import AllJobs from "../Components/AllJobs/AllJobs";
 import JobDetail from "../Components/JobDetail/JobDetail";
-import JobDetailHome from "../Components/JobDetailHome/JobDetailHome";
 
 
 const router = createBrowserRouter([
@@ -49,18 +48,13 @@ const router = createBrowserRouter([
           element: <PrivateRoute><MyJobs title="My Jobs"></MyJobs></PrivateRoute>,
         },
         {
-          path: "/AppliedJob",
+          path: "/appliedJobs",
           element: <PrivateRoute><AppliedJobs title="Applied Jobs"></AppliedJobs></PrivateRoute>,
         },
         {
           path: "/jobDetail/:id",
           element: <PrivateRoute><JobDetail title="Job Detail"></JobDetail></PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/allJobs/add/${params.id}`)
-        },
-        {
-          path: "/jobDetailHome/:id",
-          element: <PrivateRoute><JobDetailHome title="Job Detail"></JobDetailHome></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
         },
         {
           path: "/blogs",
