@@ -12,7 +12,7 @@ const MyTabs = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/allJobs/add")
+    fetch("https://job-heaven-server.vercel.app/allJobs/add")
       .then((res) => res.json())
       .then((data) => setJobsData(data))
       .catch((error) => console.log("Error fetching data:", error));

@@ -46,7 +46,7 @@ const AddJob = ({ title }) => {
 
     console.log(getValue);
 
-    fetch("http://localhost:5000/allJobs/add", {
+    fetch("https://job-heaven-server.vercel.app/allJobs/add", {
       method: "POST",
       headers: {
         "content-type": "application/json",

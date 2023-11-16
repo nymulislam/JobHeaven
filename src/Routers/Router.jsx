@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: "/allJobs",
         element: <AllJobs title="All Jobs"></AllJobs>,
-        loader: () => fetch("http://localhost:5000/allJobs/add"),
+        loader: () => fetch("https://job-heaven-server.vercel.app/allJobs/add"),
       },
       {
         path: "/addJob",
@@ -71,7 +71,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allJobs/add/${params.id}`),
+          fetch(`https://job-heaven-server.vercel.app/allJobs/add/${params.id}`),
       },
       {
         path: "/updateJob/:id",
@@ -81,7 +81,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allJobs/user/${params.id}`),
+          fetch(`https://job-heaven-server.vercel.app/allJobs/user/${params.id}`),
       },
       {
         path: "/blogs",

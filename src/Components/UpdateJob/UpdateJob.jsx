@@ -48,7 +48,7 @@ const UpdateJob = ({ title }) => {
 
     console.log(getValue);
 
-    fetch(`http://localhost:5000/allJobs/user/${job._id}`, {
+    fetch(`https://job-heaven-server.vercel.app/allJobs/user/${job._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

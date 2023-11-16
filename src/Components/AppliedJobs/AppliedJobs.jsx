@@ -8,7 +8,7 @@ const AppliedJobs = ({ title }) => {
   const location = useLocation();
   const { user } = useContext(AuthContext);
 
-  const url = `http://localhost:5000/appliedJobs/add?email=${user.email}`;
+  const url = `https://job-heaven-server.vercel.app/appliedJobs/add?email=${user.email}`;
   const [appliedJobs, setAppliedJobs] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
 

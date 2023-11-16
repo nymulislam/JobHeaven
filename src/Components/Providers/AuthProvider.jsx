@@ -51,7 +51,7 @@ const AuthProvider = ({ children }) => {
       // JWT Token
       if (currentUser) {
         axios
-          .post("http://localhost:5000/jwt", loggedUser, {
+          .post("https://job-heaven-server.vercel.app/jwt", loggedUser, {
             withCredentials: true,
             credentials: "include",
           })
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
             console.error("Error fetching token:", error);
           });
       } else {
-        axios.post("http://localhost:5000/logout", loggedUser, {
+        axios.post("https://job-heaven-server.vercel.app/logout", loggedUser, {
           withCredentials: true
         })
         .then(res => {

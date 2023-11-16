@@ -8,7 +8,7 @@ const MyJobs = ({ title }) => {
   const location = useLocation();
   const { user } = useContext(AuthContext);
 
-  const url = `http://localhost:5000/allJobs/user?email=${user.email}`;
+  const url = `https://job-heaven-server.vercel.app/allJobs/user?email=${user.email}`;
 
   const [myJobs, setMyJobs] = useState([]);
 
@@ -43,7 +43,7 @@ const MyJobs = ({ title }) => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:5000/allJobs/user/${id}`, {
+          fetch(`https://job-heaven-server.vercel.app/allJobs/user/${id}`, {
             method: "DELETE",
           });
           swalWithBootstrapButtons.fire({
