@@ -2,12 +2,12 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const Blogs = ({title}) => {
+const Blogs = ({ title }) => {
   const location = useLocation();
   useEffect(() => {
-    document.title = `Job Heaven | ${title}`
-  }, [location.pathname, title])
-  
+    document.title = `Job Heaven | ${title}`;
+  }, [location.pathname, title]);
+
   return (
     <div className="text-gray-600 body-font max-w-6xl mx-auto">
       <div className="container px-5 mt-16 mb-24 mx-auto">
@@ -174,7 +174,9 @@ const Blogs = ({title}) => {
                   Code Explanation
                 </h1>
                 <p className="leading-relaxed mb-3">
-                Explore a succinct React code snippet demonstrating a responsive navigation bar with user authentication and an intuitive menu system.
+                  Explore a succinct React code snippet demonstrating a
+                  responsive navigation bar with user authentication and an
+                  intuitive menu system.
                 </p>
                 <div className="flex items-center flex-wrap ">
                   <Link

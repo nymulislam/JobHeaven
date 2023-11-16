@@ -1,19 +1,23 @@
 /* eslint-disable react/prop-types */
-import { useContext, useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import "./AddJob.css";
+import { useEffect, useState } from "react";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
+import "./UpdateJob.css";
 import swal from "sweetalert";
-import { AuthContext } from "../Providers/AuthProvider";
 
-const AddJob = ({ title }) => {
+const UpdateJob = ({ title }) => {
   const location = useLocation();
   useEffect(() => {
     document.title = `Job Heaven | ${title}`;
   }, [location.pathname, title]);
 
-  const { user } = useContext(AuthContext);
   const [selectedType, setSelectedType] = useState("");
   const navigate = useNavigate();
+
+  const job = useLoaderData();
+
+  useEffect(() => {
+    setSelectedType(job.category || "");
+  }, [job.category]);
 
   const handleJob = (e) => {
     e.preventDefault();
@@ -27,7 +31,6 @@ const AddJob = ({ title }) => {
     const applicantsNumber = form.elements.applicantsNumber.value;
     const postingDate = form.elements.postingDate.value;
     const applicationDeadline = form.elements.applicationDeadline.value;
-    const email = user.email;
 
     form.reset();
 
@@ -41,13 +44,12 @@ const AddJob = ({ title }) => {
       applicationDeadline,
       applicantsNumber,
       description,
-      email,
     };
 
     console.log(getValue);
 
-    fetch("http://localhost:5000/allJobs/add", {
-      method: "POST",
+    fetch(`http://localhost:5000/allJobs/user/${job._id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -57,10 +59,10 @@ const AddJob = ({ title }) => {
       .then((data) => {
         console.log(data);
 
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           swal({
             title: "Good job!",
-            text: "You added a Job!",
+            text: "You updated the Job!",
             icon: "success",
             button: "ok!",
           });
@@ -77,7 +79,7 @@ const AddJob = ({ title }) => {
     <div className="max-w-4xl mx-auto mt-10 mb-20">
       <div>
         <div className="p-5 rounded-t-lg text-white text-lg font-medium bg-gradient-to-br from-[#2b68e0] to-[#e710ea]">
-          <h2>Add A Job Form</h2>
+          <h2>Update Job Form</h2>
         </div>
         <div className="bg-white rounded-b-lg p-6">
           <form onSubmit={handleJob}>
@@ -88,6 +90,7 @@ const AddJob = ({ title }) => {
               <input
                 type="text"
                 name="employer"
+                defaultValue={job.employer}
                 className="w-[70%] h-8 mb-3 py-2 px-3 text-[#888] border-[1px] border-[#dadada]"
                 required
               />
@@ -99,6 +102,7 @@ const AddJob = ({ title }) => {
               <input
                 type="text"
                 name="title"
+                defaultValue={job.title}
                 className="w-[70%] h-8 mb-3 py-2 px-3 text-[#888] border-[1px] border-[#dadada]"
                 required
               />
@@ -108,6 +112,7 @@ const AddJob = ({ title }) => {
               <input
                 type="text"
                 name="pictureUrl"
+                defaultValue={job.pictureUrl}
                 className="w-[70%] h-8 mb-3 py-2 px-3 text-[#888] border-[1px] border-[#dadada]"
                 required
               />
@@ -137,6 +142,7 @@ const AddJob = ({ title }) => {
               <input
                 type="text"
                 name="salaryRange"
+                defaultValue={job.salaryRange}
                 min="0"
                 pattern="[$-]{2}-[0-9]{2}-[$-]{3}"
                 placeholder="$75,000 - $95,000"
@@ -165,6 +171,7 @@ const AddJob = ({ title }) => {
               <input
                 type="date"
                 name="postingDate"
+                defaultValue={job.postingDate}
                 className="w-[70%] h-8 mb-3 py-2 px-3 text-[#888] border-[1px] border-[#dadada]"
                 required
               />
@@ -176,6 +183,7 @@ const AddJob = ({ title }) => {
               <input
                 type="date"
                 name="applicationDeadline"
+                defaultValue={job.applicationDeadline}
                 className="w-[70%] h-8 mb-3 py-2 px-3 text-[#888] border-[1px] border-[#dadada]"
                 required
               />
@@ -187,6 +195,7 @@ const AddJob = ({ title }) => {
               <textarea
                 type="text"
                 name="description"
+                defaultValue={job.description}
                 className="w-[70%] h-24 pt-1 px-2 text-[#888] border-[1px] border-[#dadada]"
                 required
               />
@@ -196,7 +205,7 @@ const AddJob = ({ title }) => {
                 type="submit"
                 className="btn w-1/2 bg-gradient-to-br from-[#2b68e0] to-[#e710ea] text-white text-lg"
               >
-                Submit
+                Update
               </button>
             </div>
           </form>
@@ -206,4 +215,4 @@ const AddJob = ({ title }) => {
   );
 };
 
-export default AddJob;
+export default UpdateJob;

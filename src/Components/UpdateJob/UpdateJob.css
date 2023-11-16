@@ -1,0 +1,14 @@
+h2{
+    margin: 0;
+    padding-left: 15px; 
+  }
+  label, table{
+    display: block;
+    margin: 15px;
+  }
+  label>span{
+    float: left;
+    width: 25%;
+    margin-top: 2px;
+    padding-right: 10px;
+  }

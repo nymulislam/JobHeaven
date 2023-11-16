@@ -2,11 +2,11 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const Blog3 = ({title}) => {
+const Blog3 = ({ title }) => {
   const location = useLocation();
   useEffect(() => {
-    document.title = `Job Heaven | ${title}`
-  }, [location.pathname, title])
+    document.title = `Job Heaven | ${title}`;
+  }, [location.pathname, title]);
   return (
     <div className="max-w-screen-xl mx-auto mb-10 ">
       <div className="mt-10">

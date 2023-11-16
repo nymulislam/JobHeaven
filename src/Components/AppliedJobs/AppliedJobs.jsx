@@ -10,7 +10,7 @@ const AppliedJobs = ({ title }) => {
 
   const url = `http://localhost:5000/appliedJobs/add?email=${user.email}`;
   const [appliedJobs, setAppliedJobs] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   console.log(appliedJobs);
 
@@ -27,21 +27,23 @@ const AppliedJobs = ({ title }) => {
     if (selectedCategory === "All") {
       return appliedJobs;
     } else {
-      return appliedJobs.filter(job => job.jobs.category === selectedCategory);
+      return appliedJobs.filter(
+        (job) => job.jobs.category === selectedCategory
+      );
     }
-  }
+  };
 
   // React to PDF
-  const {toPDF, targetRef} = usePDF({filename: 'Applied_Jobs_Summery.pdf'})
+  const { toPDF, targetRef } = usePDF({ filename: "Applied_Jobs_Summery.pdf" });
 
   return (
-    <div className="max-w-6xl h-screen mx-auto mb-20 mt-10">
+    <div className="max-w-6xl mx-auto mb-20 mt-10">
       {/* select implement */}
       <div className="flex items-center gap-5 md:justify-around flex-col-reverse md:flex-row">
-        <select 
-        className="select select-primary w-full max-w-xs"
-        onChange={(e) => setSelectedCategory(e.target.value)}
-        value={selectedCategory}
+        <select
+          className="select select-primary w-full max-w-xs"
+          onChange={(e) => setSelectedCategory(e.target.value)}
+          value={selectedCategory}
         >
           <option value="All" disabled selected>
             Select A Category
@@ -52,16 +54,20 @@ const AppliedJobs = ({ title }) => {
           <option value="Part Time">Part Time</option>
         </select>
         <div>
-          <button 
-          onClick={() => toPDF()}
-          className="btn hover:glass btn-outline btn-primary text-lg font-semibold">Download Summary</button>
+          <button
+            onClick={() => toPDF()}
+            className="btn hover:glass btn-outline btn-primary text-lg font-semibold"
+          >
+            Download Summary
+          </button>
         </div>
       </div>
 
       <div className="form-control my-6"></div>
-      <div 
-      ref={targetRef}
-      className="grid grid-cols-1 md:rid-cols-2 lg:grid-cols-2 gap-5">
+      <div
+        ref={targetRef}
+        className="grid grid-cols-1 md:rid-cols-2 lg:grid-cols-2 gap-5"
+      >
         {filterJobsByCategory().map((job) => (
           <div
             key={job._id}

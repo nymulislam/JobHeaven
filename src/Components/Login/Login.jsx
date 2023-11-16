@@ -3,16 +3,16 @@ import { useContext, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../Providers/AuthProvider";
-import {FcGoogle} from 'react-icons/fc'
-const Login = ({title}) => {
+import { FcGoogle } from "react-icons/fc";
+const Login = ({ title }) => {
   const { signin, googleSignin } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const location = useLocation();
   useEffect(() => {
-    document.title = `Job Heaven | ${title}`
-  }, [location.pathname, title])
-  
+    document.title = `Job Heaven | ${title}`;
+  }, [location.pathname, title]);
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -178,13 +178,13 @@ const Login = ({title}) => {
               />
             </div>
             <div className="mt-10">
-            <button
-              className="block w-full select-none rounded-lg bg-gradient-to-br from-[#2b68e0] to-[#e710ea] border-solid border-2 border-[#5356e3] py-3 px-6 text-center align-middle font-sans text-base font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-              type="submit"
-              data-ripple-light="true"
-            >
-              Login
-            </button>
+              <button
+                className="block w-full select-none rounded-lg bg-gradient-to-br from-[#2b68e0] to-[#e710ea] border-solid border-2 border-[#5356e3] py-3 px-6 text-center align-middle font-sans text-base font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="submit"
+                data-ripple-light="true"
+              >
+                Login
+              </button>
             </div>
           </form>
           <div className="-ml-2.5"></div>

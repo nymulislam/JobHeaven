@@ -9,7 +9,11 @@ const CareerAdvice = () => {
         {/* Card One */}
         <div className="card p-4 w-full bg-base-100 shadow-lg hover:shadow-2xl">
           <figure>
-            <img src="https://i.postimg.cc/nV1Fzbpg/interview.png" alt="Interview" className="h-32" />
+            <img
+              src="https://i.postimg.cc/nV1Fzbpg/interview.png"
+              alt="Interview"
+              className="h-32"
+            />
           </figure>
           <div className="card-body">
             <div className="badge bg-gradient-to-r from-[#2b68e0] to-[#e710ea] text-white font-semibold">
@@ -22,7 +26,11 @@ const CareerAdvice = () => {
         {/* Card Two */}
         <div className="card p-4 w-full bg-base-100 shadow-lg hover:shadow-2xl">
           <figure>
-            <img src="https://i.postimg.cc/qqQ6XNnC/resume.png" alt="Resume" className="h-32"/>
+            <img
+              src="https://i.postimg.cc/qqQ6XNnC/resume.png"
+              alt="Resume"
+              className="h-32"
+            />
           </figure>
           <div className="card-body">
             <div className="badge bg-gradient-to-r from-[#2b68e0] to-[#e710ea] text-white font-semibold">
@@ -35,7 +43,11 @@ const CareerAdvice = () => {
         {/* Card Three */}
         <div className="card p-4 w-full bg-base-100 shadow-lg hover:shadow-2xl">
           <figure>
-            <img src="https://i.postimg.cc/CKJ75xrd/jobs.png" alt="Jobs" className="h-32" />
+            <img
+              src="https://i.postimg.cc/CKJ75xrd/jobs.png"
+              alt="Jobs"
+              className="h-32"
+            />
           </figure>
           <div className="card-body">
             <div className="badge bg-gradient-to-r from-[#2b68e0] to-[#e710ea] text-white font-semibold">
@@ -48,11 +60,15 @@ const CareerAdvice = () => {
         {/* Card Four */}
         <div className="card p-4 w-full bg-base-100 shadow-lg hover:shadow-2xl">
           <figure>
-            <img src="https://i.postimg.cc/dVGvzzH5/assessment.png" alt="Assessment" className="h-32"/>
+            <img
+              src="https://i.postimg.cc/dVGvzzH5/assessment.png"
+              alt="Assessment"
+              className="h-32"
+            />
           </figure>
           <div className="card-body">
             <div className="badge bg-gradient-to-r from-[#2b68e0] to-[#e710ea] text-white font-semibold">
-            ASSESSMENTS
+              ASSESSMENTS
             </div>
             <p>Acing Assessments and Tests</p>
           </div>

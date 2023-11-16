@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const MyTabs = () => {
   const [jobsData, setJobsData] = useState([]);
-  const [showAllJobs, setShowAllJobs] = useState(false)
+  const [showAllJobs, setShowAllJobs] = useState(false);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -22,8 +22,7 @@ const MyTabs = () => {
     if (category === "All Jobs") {
       return showAllJobs ? jobsData : jobsData.slice(0, 2);
     } else {
-      return jobsData
-        .filter((job) => job.category === category)
+      return jobsData.filter((job) => job.category === category);
     }
   };
 

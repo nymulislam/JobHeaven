@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useContext, useEffect } from "react";
-import { useLoaderData, useLocation } from "react-router-dom";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import "sweetalert2/src/sweetalert2.scss";
 import { AuthContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 const JobDetail = ({ title }) => {
   const { user } = useContext(AuthContext);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = `Job Heaven | ${title}`;
@@ -16,6 +17,16 @@ const JobDetail = ({ title }) => {
   const job = useLoaderData();
 
   let resumeLinkValue;
+
+  const isDeadlinePassed = () => {
+    const currentTimestamp = Date.now();
+    const deadlineTimestamp = new Date(job.applicationDeadline).getTime();
+    return currentTimestamp > deadlineTimestamp;
+  };
+
+  const isUserEmployer = () => {
+    return user.email === job.email;
+  };
 
   const handleAppliedJob = () => {
     const email = user?.email;
@@ -43,6 +54,19 @@ const JobDetail = ({ title }) => {
   };
 
   const handleApplyClick = () => {
+    if (isDeadlinePassed()) {
+      Swal.fire({
+        icon: "error",
+        title: "Application Deadline has passed. You cannot apply.",
+      });
+      return;
+    }
+
+    if (isUserEmployer()) {
+      Swal.fire("Employers cannot apply for their own job.");
+      return;
+    }
+
     (async () => {
       const { value: accept } = await Swal.fire({
         title: "Multiple inputs",
@@ -67,6 +91,7 @@ const JobDetail = ({ title }) => {
         Swal.fire(
           "Your application has been submitted successfully. <br/> Thank you!"
         );
+        navigate("/appliedJobs");
       }
     })();
   };
