@@ -36,7 +36,7 @@ const MyTabs = () => {
     }
   };
   return (
-    <Tabs className="max-w-6xl mx-auto mt-20 mb-10">
+    <Tabs className="max-w-6xl mx-auto mt-24 text-center md:mt-20 mb-10">
       <TabList>
         <Tab>All Jobs</Tab>
         <Tab>On Site Job</Tab>
