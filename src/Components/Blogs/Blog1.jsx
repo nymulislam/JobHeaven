@@ -20,7 +20,7 @@ const Blog1 = ({ title }) => {
             }}
           ></div>
           <img
-            src="https://i.postimg.cc/pXf7yb9g/token.png"
+            src="https://i.postimg.cc/MKG79c6C/medical-Report.png"
             className="left-0 top-0 w-full z-0 object-cover"
           />
           <div className="p-4 absolute bottom-0 left-0 z-20">
@@ -28,10 +28,10 @@ const Blog1 = ({ title }) => {
               to="/"
               className="px-4 py-1 bg-black text-gray-200 inline-flex items-center justify-center mb-2"
             >
-              Web Development
+              Health Consultancy
             </Link>
             <h2 className="text-4xl font-semibold text-gray-100 leading-tight">
-              Understanding Access Tokens and Refresh Tokens for Beginners
+            Holistic Health: A Guide to Wellness and Vitality
             </h2>
             <div className="flex mt-3">
               <img
@@ -43,7 +43,7 @@ const Blog1 = ({ title }) => {
                   {" "}
                   Naymul Islam{" "}
                 </p>
-                <p className="font-semibold text-gray-400 text-xs"> 08 Nov </p>
+                <p className="font-semibold text-gray-400 text-xs"> 30 Nov </p>
               </div>
             </div>
           </div>
