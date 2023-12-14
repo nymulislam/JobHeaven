@@ -1,6 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
 import { AuthContext } from "../Providers/AuthProvider";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const MyTabs = () => {
   const [jobsData, setJobsData] = useState([]);
   const [showAllJobs, setShowAllJobs] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -36,18 +35,28 @@ const MyTabs = () => {
     }
   };
   return (
-    <Tabs className="max-w-6xl mx-auto mt-24 md:mt-20 mb-10">
-      <TabList>
-        <Tab>All Jobs</Tab>
-        <Tab>On Site Job</Tab>
-        <Tab>Remote Job</Tab>
-        <Tab>Hybrid</Tab>
-        <Tab>Part Time</Tab>
-      </TabList>
+    <div className="max-w-5xl mx-auto mt-24 md:my-20">
+      <div className="tabs tabs-boxed justify-center gap-5 mt-20 mb-10">
+      {["All Jobs", "On Site Job", "Remote Job", "Hybrid", "Part Time"].map(
+          (category, index) => (
+            <a
+              key={index}
+              className={`tab text-lg font-semibold ${index === activeTab ? "tab-active transition duration-300 bg-gradient-to-br from-[#2b68e0] to-[#e710ea]" : ""}`}
+              onClick={() => setActiveTab(index)}
+            >
+              {category}
+            </a>
+          )
+        )}
+      </div>
 
       {["All Jobs", "On Site Job", "Remote Job", "Hybrid", "Part Time"].map(
-        (category) => (
-          <TabPanel key={category}>
+        (category, index) => (
+          <div
+            key={category}
+            role="tabpanel"
+            className={`${index === activeTab ? "" : "hidden"}`}
+          >
             {/* Render Job Cards based on the selected category */}
 
             <div className="grid grid-cols-1 md:rid-cols-2 lg:grid-cols-2 gap-5">
@@ -117,10 +126,10 @@ const MyTabs = () => {
                 </button>
               </div>
             )}
-          </TabPanel>
+          </div>
         )
       )}
-    </Tabs>
+    </div>
   );
 };
 

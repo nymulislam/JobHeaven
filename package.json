@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@ionic/react": "^7.5.3",
     "axios": "^1.6.1",
     "firebase": "^10.5.2",
