@@ -1,6 +1,6 @@
 const Overview = () => {
   return (
-      <section className="text-gray-700 body-font md:my-10 max-w-xs mx-auto md:max-w-2xl lg:max-w-6xl">
+      <section className="text-gray-700 body-font md:my-20 max-w-xs mx-auto md:max-w-2xl lg:max-w-6xl">
         <div className="container px-5 py-24 mx-auto">
         <h2 className="text-center text-4xl font-semibold mb-10 bg-clip-text text-transparent bg-gradient-to-br from-[#2b68e0] to-[#e710ea]">
         Career Insights

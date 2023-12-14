@@ -36,7 +36,7 @@ const MyTabs = () => {
   };
   return (
     <div className="max-w-5xl mx-auto mt-24 md:my-20">
-      <div className="tabs tabs-boxed justify-center gap-5 mt-20 mb-10">
+      <div className="tabs tabs-boxed justify-center gap-5 mt-36 mb-10">
       {["All Jobs", "On Site Job", "Remote Job", "Hybrid", "Part Time"].map(
           (category, index) => (
             <a
