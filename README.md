@@ -21,27 +21,22 @@ Welcome to JobHeaven.com, a revolutionary online platform that aims to redefine 
 - Create and manage personalized profiles showcasing skills and qualifications.
 - Employers can browse detailed candidate profiles for targeted recruitment.
 
-### 4. Smart Matching Algorithm
-
-- Personalized job recommendations based on user profiles and preferences.
-- Efficient candidate matching for employers.
-
-### 5. Interactive Employer Dashboard
+### 4. Interactive Employer Dashboard
 
 - Feature-rich dashboard for managing job postings and reviewing applications.
 - Tools for scheduling interviews and streamlining the recruitment process.
 
-### 6. Mobile Accessibility
+### 5. Mobile Accessibility
 
 - Optimized for mobile devices for on-the-go access.
 - Mobile applications available for Android and iOS platforms.
 
-### 7. Community and Networking
+### 6. Community and Networking
 
 - Built-in community feature for job seekers to connect and share insights.
 - Networking opportunities for employers to engage with potential candidates.
 
-### 8. Data Security and Privacy
+### 7. Data Security and Privacy
 
 - Robust security measures to protect user data.
 - Compliance with industry standards and regulations for privacy.
